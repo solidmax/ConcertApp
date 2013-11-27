@@ -1,34 +1,28 @@
 package com.multimedios.concertapp;
 
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.model.GraphUser;
+
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
-import android.view.View;
-
-import com.facebook.*;
-
-import android.widget.Button;
 import android.content.Intent;
+import android.view.Menu;
 
-public class MainActivity extends Activity {
-	
-	private Button boton_ingresar;
+public class ProcesandoActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_procesando);
 		
-		boton_ingresar = (Button) findViewById(R.id.btn_login_facebook);
+		loginFacebook();
 	}
-	
-	public void loginFacebook(View v){
-		boton_ingresar.setClickable(false);
-		
-		Intent irProcesandoActivity = new Intent(getApplicationContext(), ProcesandoActivity.class);
-    	startActivity(irProcesandoActivity);
-    	
-		/*//start Facebook Login
+
+	private void loginFacebook(){
+		//start Facebook Login
 		Session.openActiveSession(this, true, new Session.StatusCallback(){
 			
 			//callback when session changes state
@@ -43,30 +37,29 @@ public class MainActivity extends Activity {
 						public void onCompleted(GraphUser user, Response response) {
 							// TODO Auto-generated method stub
 							if(user!=null){
-								//welcome.setText("Bienvenido a Concert App " + user.getName() + "!");
 								Intent irHomeActivity = new Intent(getApplicationContext(), HomeActivity.class);
 						    	irHomeActivity.putExtra("usuario", user.getName());
 						    	startActivity(irHomeActivity);
-						    	//finish();
+						    	finish();
 							}
 						}
 					}).executeAsync();
 				}
 			}
-		});*/
+		});
 	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.procesando, menu);
 		return true;
 	}
 	
-	/*@Override
+	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		  super.onActivityResult(requestCode, resultCode, data);
 		  Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-	}*/
+	}
 
 }
