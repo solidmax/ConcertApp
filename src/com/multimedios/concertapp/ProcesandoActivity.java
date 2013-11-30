@@ -37,9 +37,11 @@ public class ProcesandoActivity extends Activity {
 						public void onCompleted(GraphUser user, Response response) {
 							// TODO Auto-generated method stub
 							if(user!=null){
-								Intent irHomeActivity = new Intent(getApplicationContext(), HomeActivity.class);
-						    	irHomeActivity.putExtra("usuario", user.getName());
-						    	startActivity(irHomeActivity);
+								//Intent irHomeActivity = new Intent(getApplicationContext(), HomeActivity.class);
+						    	//irHomeActivity.putExtra("usuario", user.getName());
+						    	//startActivity(irHomeActivity);
+								Intent irPagerMainActivity = new Intent(getApplicationContext(), PagerMainActivity.class);
+						    	startActivity(irPagerMainActivity);
 						    	finish();
 							}
 						}

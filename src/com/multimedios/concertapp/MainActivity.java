@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 
-import com.facebook.*;
-
 import android.widget.Button;
 import android.content.Intent;
 
@@ -27,33 +25,6 @@ public class MainActivity extends Activity {
 		
 		Intent irProcesandoActivity = new Intent(getApplicationContext(), ProcesandoActivity.class);
     	startActivity(irProcesandoActivity);
-    	
-		/*//start Facebook Login
-		Session.openActiveSession(this, true, new Session.StatusCallback(){
-			
-			//callback when session changes state
-			@Override
-			public void call(Session session, SessionState state, Exception exception){
-				if(session.isOpened()){
-					//make request to the /me API
-					Request.newMeRequest(session, new Request.GraphUserCallback() {
-						
-						//callback after Graph API response with user object
-						@Override
-						public void onCompleted(GraphUser user, Response response) {
-							// TODO Auto-generated method stub
-							if(user!=null){
-								//welcome.setText("Bienvenido a Concert App " + user.getName() + "!");
-								Intent irHomeActivity = new Intent(getApplicationContext(), HomeActivity.class);
-						    	irHomeActivity.putExtra("usuario", user.getName());
-						    	startActivity(irHomeActivity);
-						    	//finish();
-							}
-						}
-					}).executeAsync();
-				}
-			}
-		});*/
 	}
 	
 	@Override
@@ -63,10 +34,4 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-	/*@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		  super.onActivityResult(requestCode, resultCode, data);
-		  Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
-	}*/
-
 }

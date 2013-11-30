@@ -9,5 +9,6 @@
     <string name="login_facebook">Login con Facebook</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_procesando">ProcesandoActivity</string>
+    <string name="title_activity_pager_main">PagerMainActivity</string>
 
 </resources>
